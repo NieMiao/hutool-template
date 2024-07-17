@@ -1,3 +1,4 @@
+
 ######## hutool-aop-5.7.16.postfixTemplates ######## 
 
 
@@ -325,12 +326,22 @@
 .containsAll : ht>集合1中是否包含集合2中所有的元素,即集合2是否为集合1的子集
 	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.containsAll($expr$, $arg$) 
 
-.isEmpty : ht>Iterable是否为空
-	java.util.Iterator [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isEmpty($expr$) 
-	java.util.Enumeration [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isEmpty($expr$) 
-	java.util.Map [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isEmpty($expr$) 
-	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isEmpty($expr$) 
-	java.lang.Iterable [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isEmpty($expr$) 
+.isEmpty : ht>集合是否为空
+	java.util.Iterator [cn.hutool.core.collection.CollUtil]  →      if(cn.hutool.core.collection.CollUtil.isEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.util.Enumeration [cn.hutool.core.collection.CollUtil]  →   if(cn.hutool.core.collection.CollUtil.isEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.util.Map [cn.hutool.core.collection.CollUtil]  →           if(cn.hutool.core.collection.CollUtil.isEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.util.Collection [cn.hutool.core.collection.CollUtil]  →    if(cn.hutool.core.collection.CollUtil.isEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.lang.Iterable [cn.hutool.core.collection.CollUtil]  →      if(cn.hutool.core.collection.CollUtil.isEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
 
 .clear : ht>清除一个或多个集合内的元素,每个集合调用clear()方法
 	ARRAY [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.clear($expr$) 
@@ -374,7 +385,17 @@
 	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.filterNew($expr$, $arg$) 
 
 
+
 ######## cn.hutool.core.util.StrUtil
+.isNotBlank : ht>字符串判断是否为空串
+	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isNotBlank($expr$)){\
+                                                                                $END$\
+                                                        }
+.isNotEmpty : ht>字符串判断是否为空
+	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isNotEmpty($expr$)){\
+                                                                                $END$\
+                                                        }														
+
 .similar : ht>计算两个字符串的相似度
 	java.lang.String [cn.hutool.core.util.StrUtil]  →  cn.hutool.core.util.StrUtil.similar($expr$, $arg$) 
 
@@ -421,3 +442,7 @@
 
 .isEmptyIfStr : ht>如果对象是字符串是否为空串,空的定义如下
 	java.lang.Object [cn.hutool.core.util.StrUtil]  →  cn.hutool.core.util.StrUtil.isEmptyIfStr($expr$) 
+
+
+
+
