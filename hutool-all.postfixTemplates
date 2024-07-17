@@ -224,7 +224,7 @@
 .sortEntryToList : ht>将Set排序(根据Entry的值)
 	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.sortEntryToList($expr$) 
 
-.isNotEmpty : ht>集合是否为空
+.isNotEmpty : CollUtil>集合是否为空
 	java.util.Iterator [cn.hutool.core.collection.CollUtil]  →      if(cn.hutool.core.collection.CollUtil.isNotEmpty($expr$)){\
                                                                                 $END$\
                                                                     }
@@ -336,7 +336,7 @@
 .containsAll : ht>集合1中是否包含集合2中所有的元素,即集合2是否为集合1的子集
 	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.containsAll($expr$, $arg$) 
 
-.isEmpty : ht>集合是否为空
+.isEmpty : CollUtil>集合是否为空
 	java.util.Iterator [cn.hutool.core.collection.CollUtil]  →      if(cn.hutool.core.collection.CollUtil.isEmpty($expr$)){\
                                                                                 $END$\
                                                                     }
@@ -397,20 +397,20 @@
 
 
 ######## cn.hutool.core.util.StrUtil
-.isNotBlank : ht>字符串判断是否为空串
+.isNotBlank : StrUtil>字符串判断是否为空串
 	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isNotBlank($expr$)){\
                                                                                 $END$\
                                                         }
-.isNotEmpty : ht>字符串判断是否为空
+.isNotEmpty : StrUtil>字符串判断是否为空
 	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isNotEmpty($expr$)){\
                                                                                 $END$\
                                                         }		
 
-.isBlank : ht>字符串判断是否为空串
+.isBlank : StrUtil>字符串判断是否为空串
 	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isBlank($expr$)){\
                                                                                 $END$\
                                                         }
-.isEmpty : ht>字符串判断是否为空
+.isEmpty : StrUtil>字符串判断是否为空
 	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isEmpty($expr$)){\
                                                                                 $END$\
                                                         }			
@@ -465,11 +465,11 @@
 
 ######## cn.hutool.core.util.ObjectUtil
 
-.isNotNull : ht>判断对象是否为空
+.isNotNull : ObjectUtil>判断对象是否为空
 	java.lang.Object [cn.hutool.core.util.ObjectUtil]  →  	if(cn.hutool.core.util.ObjectUtil.isNotNull($expr$)){\
                                                                                 $END$\
                                                           	}	
-.isNull : ht>判断对象是否为空
+.isNull : ObjectUtil>判断对象是否为空
 	java.lang.Object [cn.hutool.core.util.ObjectUtil]  →  	if(cn.hutool.core.util.ObjectUtil.isNull($expr$)){\
                                                                                 $END$\
                                                           	}																
