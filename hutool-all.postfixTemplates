@@ -224,12 +224,22 @@
 .sortEntryToList : ht>将Set排序(根据Entry的值)
 	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.sortEntryToList($expr$) 
 
-.isNotEmpty : ht>Iterable是否为空
-	java.util.Iterator [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isNotEmpty($expr$) 
-	java.util.Enumeration [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isNotEmpty($expr$) 
-	java.util.Map [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isNotEmpty($expr$) 
-	java.util.Collection [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isNotEmpty($expr$) 
-	java.lang.Iterable [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.isNotEmpty($expr$) 
+.isNotEmpty : ht>集合是否为空
+	java.util.Iterator [cn.hutool.core.collection.CollUtil]  →      if(cn.hutool.core.collection.CollUtil.isNotEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.util.Enumeration [cn.hutool.core.collection.CollUtil]  →   if(cn.hutool.core.collection.CollUtil.isNotEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.util.Map [cn.hutool.core.collection.CollUtil]  →           if(cn.hutool.core.collection.CollUtil.isNotEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.util.Collection [cn.hutool.core.collection.CollUtil]  →    if(cn.hutool.core.collection.CollUtil.isNotEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
+	java.lang.Iterable [cn.hutool.core.collection.CollUtil]  →      if(cn.hutool.core.collection.CollUtil.isNotEmpty($expr$)){\
+                                                                                $END$\
+                                                                    }
 
 .page : ht>对指定List分页取值
 	INT [cn.hutool.core.collection.CollUtil]  →  cn.hutool.core.collection.CollUtil.page($expr$, $arg$) 
@@ -394,7 +404,16 @@
 .isNotEmpty : ht>字符串判断是否为空
 	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isNotEmpty($expr$)){\
                                                                                 $END$\
-                                                        }														
+                                                        }		
+
+.isBlank : ht>字符串判断是否为空串
+	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isBlank($expr$)){\
+                                                                                $END$\
+                                                        }
+.isEmpty : ht>字符串判断是否为空
+	java.lang.String [cn.hutool.core.util.StrUtil]  →   if(cn.hutool.core.util.StrUtil.isEmpty($expr$)){\
+                                                                                $END$\
+                                                        }			
 
 .similar : ht>计算两个字符串的相似度
 	java.lang.String [cn.hutool.core.util.StrUtil]  →  cn.hutool.core.util.StrUtil.similar($expr$, $arg$) 
@@ -444,5 +463,13 @@
 	java.lang.Object [cn.hutool.core.util.StrUtil]  →  cn.hutool.core.util.StrUtil.isEmptyIfStr($expr$) 
 
 
+######## cn.hutool.core.util.ObjectUtil
 
-
+.isNotNull : ht>判断对象是否为空
+	java.lang.Object [cn.hutool.core.util.ObjectUtil]  →  	if(cn.hutool.core.util.ObjectUtil.isNotNull($expr$)){\
+                                                                                $END$\
+                                                          	}	
+.isNull : ht>判断对象是否为空
+	java.lang.Object [cn.hutool.core.util.ObjectUtil]  →  	if(cn.hutool.core.util.ObjectUtil.isNull($expr$)){\
+                                                                                $END$\
+                                                          	}																
